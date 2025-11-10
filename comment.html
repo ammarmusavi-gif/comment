@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم کامنت آنلاین ساده</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            direction: rtl;
+            padding: 20px;
+            background: #f9f6ef;
+        }
+        h2 {
+            color: #125c2f;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #commentBox {
+            width: 100%;
+            height: 90px;
+            border: 2px solid #198754;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+        }
+        button {
+            background: #198754;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #146c43;
+        }
+        .comment {
+            background: #e8f5e9;
+            border-right: 4px solid #198754;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h2>نظرت رو بنویس</h2>
+    <textarea id="commentBox" placeholder="کامنت بنویس..."></textarea><br><br>
+    <button onclick="submitComment()">ارسال کامنت</button>
+
+    <div id="comments"></div>
+
+    <script>
+        function submitComment() {
+            const text = document.getElementById("commentBox").value;
+            if(text.trim() === "") return;
+            const div = document.createElement("div");
+            div.className = "comment";
+            div.innerText = text;
+            document.getElementById("comments").appendChild(div);
+            document.getElementById("commentBox").value = "";
+        }
+    </script>
+</body>
+</html>
